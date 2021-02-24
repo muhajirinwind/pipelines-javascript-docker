@@ -21,7 +21,7 @@ steps:
     command: build
     Dockerfile: 'app/Dockerfile'
     tags: |
-      $(Build.BuildId)
+      $(dockerCompose.imageTag)
 
 - task: Docker@2
   displayName: push
@@ -30,6 +30,6 @@ steps:
     repository: '$(imageRepository)'
     command: push
     tags: |
-      $(Build.BuildId)
+      $(dockerCompose.imageTag)
     
     
