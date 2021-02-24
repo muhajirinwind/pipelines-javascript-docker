@@ -20,7 +20,4 @@ steps:
     repository: $(imageRepository)
     command: buildAndPush
     Dockerfile: 'app/Dockerfile'
-    tags: |
-      $(release)
-
     
