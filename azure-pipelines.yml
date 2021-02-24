@@ -3,6 +3,11 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+parameters:
+  - name: tag
+    type: string
+    default: 'aaa'
+
 trigger:
 - master
 
@@ -20,3 +25,4 @@ steps:
     repository: 'hcidwebregistrydev'
     command: 'buildAndPush'
     Dockerfile: 'app/Dockerfile'
+    tags: '${{ parameters.tag }}'
