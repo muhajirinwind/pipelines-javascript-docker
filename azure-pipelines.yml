@@ -11,7 +11,6 @@ pool:
 
 variables:
   imageName: 'pipelines-javascript-docker'
-  tag: '$(Date:yyyyMMdd).$(Rev:r)'
 
 steps:
 - task: Docker@2
@@ -21,4 +20,3 @@ steps:
     repository: 'hcidwebregistrydev'
     command: 'buildAndPush'
     Dockerfile: 'app/Dockerfile'
-    tags: $(tag)
