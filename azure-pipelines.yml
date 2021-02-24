@@ -16,20 +16,21 @@ steps:
 - task: Docker@2
   displayName: build
   inputs:
-    containerRegistry: 'hcidweb-svc-acr'
-    repository: '$(imageRepository)'
+    containerRegistry: hcidweb-svc-acr
+    repository: $(imageRepository)
     command: build
-    Dockerfile: 'app/Dockerfile'
+    Dockerfile: app/Dockerfile
     tags: |
-      $(dockerCompose.imageTag)
+      $(tag)
+      $(release)
 
 - task: Docker@2
   displayName: push
   inputs:
-    containerRegistry: 'hcidweb-svc-acr'
-    repository: '$(imageRepository)'
+    containerRegistry: hcidweb-svc-acr
+    repository: $(imageRepository)
     command: push
     tags: |
-      $(dockerCompose.imageTag)
-    
+      $(tag)
+      $(release)
     
