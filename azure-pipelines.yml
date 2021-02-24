@@ -21,7 +21,6 @@ steps:
     command: buildAndPush
     Dockerfile: 'app/Dockerfile'
     tags: |
-      $(tag)
       $(release)
 
     
